@@ -24,5 +24,5 @@ void main() {
 
     fragColor = albedo;
     fragNormal = vec4(normalize(normal) * 0.5 + 0.5, 1.0);
-    fragEmissive = vec4(vec3(0.0), 1.0); // Pas d'émissivité propre à l'eau de base
+    fragEmissive = vec4(vec3(0.0), 1.0);
 }
