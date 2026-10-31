@@ -9,7 +9,7 @@ in vec3 vaNormal;
 uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;
 uniform vec3 cameraPosition;
-uniform float frameTimeCounter; // Pour animer les vagues
+uniform float frameTimeCounter;
 
 out vec2 texCoord;
 out vec2 lmCoord;
@@ -20,7 +20,7 @@ out vec3 worldPos;
 void main() {
     vec3 pos = vaPosition;
     
-    // Animation subtile des vagues de surface
+    // Animation subtile des vagues de surface sur l'axe vertical
     if (vaNormal.y > 0.5) {
         float wave = sin(pos.x * 2.0 + frameTimeCounter * 3.0) * cos(pos.z * 2.0 + frameTimeCounter * 2.0) * 0.05;
         pos.y += wave;
