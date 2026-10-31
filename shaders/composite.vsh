@@ -3,6 +3,9 @@
 out vec2 texCoord;
 
 void main() {
-    texCoord = gl_MultiTexCoord0.xy;
-    gl_Position = ftransform();
+    // Génération d'un quad plein écran moderne sans ftransform()
+    vec2 pos = vec2((gl_VertexID == 1 || gl_VertexID == 2) ? 1.0 : -1.0, 
+                    (gl_VertexID >= 2) ? 1.0 : -1.0);
+    gl_Position = vec4(pos, 0.0, 1.0);
+    texCoord = (pos + 1.0) * 0.5;
 }
